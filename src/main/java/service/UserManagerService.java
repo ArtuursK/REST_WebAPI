@@ -1,10 +1,14 @@
 package service;
 
 import entity.User;
+import enums.EGeneralErrorCode;
+import enums.EUserErrorDetail;
+import enums.UserStatus;
+import exceptions.BusinessException;
 import persistence.UserPs;
+import utility.PassUtil;
 
-import java.sql.SQLException;
-import java.sql.Timestamp;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,6 +81,11 @@ public class UserManagerService {
             }
         }
         return false;
+    }
+
+    //checks if user is authorized
+    private boolean checkPasskey(String username, String passkey) throws Exception {
+        return PassUtil.check(passkey, UserPs.getUserPasskey(username));
     }
 
 }

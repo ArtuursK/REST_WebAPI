@@ -15,6 +15,8 @@ public class User implements Serializable {
 
     private String timeCreated;
 
+    private String status;
+
     public User() {  }
 
     public User(String username) {
@@ -45,12 +47,21 @@ public class User implements Serializable {
         this.timeCreated = timeCreated;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", timeCreated='" + timeCreated + '\'' +
+                ", status='" + status + '\'' +
                 '}';
     }
 }
