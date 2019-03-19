@@ -15,7 +15,6 @@ import service.UserManagerService;
 import javax.ws.rs.core.MediaType;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
 
 @RestController

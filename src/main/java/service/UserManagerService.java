@@ -49,7 +49,7 @@ public class UserManagerService {
         }
 
         UserPs.createNewUser(userToCreate, hashedPasskey);
-        return userToCreate;
+        return UserPs.getUser(userToCreate.getUsername());
     }
 
     public User updateUser(String username, String passkey, String status) throws Exception {

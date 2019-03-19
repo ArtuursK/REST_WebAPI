@@ -15,7 +15,7 @@ public class UserPs {
 
     public static void createNewUser(User user, String passkey) throws SQLException {
         try{
-            PreparedStatement preparedStatement = DBUtil.getConnection().prepareStatement("insert into user (username, passphrase, created, status) values (?, ?, ?, ?)");
+            PreparedStatement preparedStatement = DBUtil.getConnection().prepareStatement("insert into user (username, passphrase, created_at, status) values (?, ?, ?, ?)");
             preparedStatement.setString(1, user.getUsername());
             preparedStatement.setString(2, passkey);
             preparedStatement.setString(3, user.getTimeCreated());
@@ -37,7 +37,7 @@ public class UserPs {
                 User user = new User();
                 user.setId(rs.getInt("id"));
                 user.setUsername(rs.getString("username"));
-                user.setTimeCreated(rs.getString("created"));
+                user.setTimeCreated(rs.getString("created_at"));
                 user.setStatus(rs.getString("status"));
                 users.add(user);
             }
@@ -71,7 +71,7 @@ public class UserPs {
 
             while (rs.next()) {
                 user.setId(rs.getInt("id"));
-                user.setTimeCreated(rs.getString("created"));
+                user.setTimeCreated(rs.getString("created_at"));
                 user.setUsername(rs.getString("username"));
                 user.setStatus(rs.getString("status"));
             }
