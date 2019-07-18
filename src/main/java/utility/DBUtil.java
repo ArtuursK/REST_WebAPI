@@ -1,7 +1,9 @@
 package utility;
 
 import java.sql.*;
-
+/*
+    @author: Arturs
+ */
 public class DBUtil {
 
     public DBUtil(){}
